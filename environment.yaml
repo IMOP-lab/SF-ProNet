@@ -1,0 +1,33 @@
+name: 3D_Seg
+channels:
+  - defaults
+dependencies:
+  - pip
+  - python=3.11
+  - pip:
+      - batchgenerators
+      - cmake
+      - colorama
+      - einops
+      - highresnet
+      - matplotlib
+      - monai
+      - nibabel
+      - numpy
+      - opencv-python
+      - pandas
+      - pillow
+      - pytorch-lightning
+      - pytz
+      - pywt
+      - pyyaml
+      - requests
+      - scikit-learn
+      - scipy
+      - seaborn
+      - simpleitk
+      - tensorboard
+      - thop
+      - timm
+      - tqdm
+
