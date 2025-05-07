@@ -2,7 +2,9 @@
 
 ## Detailed network structure of the SF-ProNet
 
-![Figure 1: Detailed network structure of the SF-ProNet](images/Fig1_SF-ProNet.png)
+<p align="center">
+  <img src="images/Fig1_SF-ProNet.png" alt="Figure 1" style="width:80%;"/>
+</p>
 
 Structural depiction of the SF-ProNet, comprising an encoding branch bifurcated into a spatial-domain encoder and a wavelet transform-based low-frequency feature extraction pathway, interconnected via SpaGate facilitating selective spectral-spatial fusion; a bottleneck stage characterized by dual consecutive FluFormer module designed for simultaneous global-local feature modeling; and a decoding branch structured by four successive upsampling processes, each followed by a LARE Graph dynamically refining inter-channel dependencies to enhance granularity of reconstructed segmentation features.
 
