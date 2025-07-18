@@ -26,7 +26,7 @@ The schematic depiction of the proposed FluFormer architecture, wherein the inpu
 
 ## Detailed Key component structure of the eLARE Graph.
 <p align="center">
-  <img src="images/Fig4_eLARE Graph.png" alt="Figure 4" style="width:60%;"/>
+  <img src="images/Fig4_eLARE Graph.png" alt="Figure 4" style="width:80%;"/>
 </p>
 
 The proposed eLARE graph, by computing spatially aggregated mean vectors across each channel and dynamically constructing an inter-channel similarity graph to effectively capture cross-channel correlations, integrates graph convolution and dynamic channel modeling strategies, thereby facilitating enhanced feature representation and detailed spatial recovery in OCT segmentation tasks.
