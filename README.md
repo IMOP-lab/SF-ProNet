@@ -18,7 +18,7 @@ The schematic representation illustrates the proposed iSpaGate, wherein spatial-
 
 ## Detailed Key component structure of the FluFormer
 <p align="center">
-  <img src="images/Fig3_FluFormer.png" alt="Figure 3" style="width:50%;"/>
+  <img src="images/Fig3_FluFormer.png" alt="Figure 3" style="width:40%;"/>
 </p>
 
 The schematic depiction of the proposed FluFormer architecture, wherein the input features undergo spatial encoding independently along the x, y, and z spatial dimensions, incorporated into the feature embedding space; encoded representations are concurrently propagated through parallel multi-head self-attention and convolutions for global and localized feature extraction, respectively, followed by a fusion mechanism facilitating cross-branch integration. Moreover, the feedforward pathway integrates KAN layers to augment nonlinear representational capacity, enhancing the expressiveness of higher-order interactions inherent in complex pathological structures.
