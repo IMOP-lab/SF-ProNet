@@ -158,7 +158,7 @@ class filter_trans(nn.Module):
 
 class iSpaGate(nn.Module):
     def __init__(self, rate, feat):
-        super(SpaGate, self).__init__()
+        super(iSpaGate, self).__init__()
         self.rate = nn.Parameter(torch.tensor(rate), requires_grad=True)
         self.feat = feat
 
@@ -321,7 +321,7 @@ class FluFormer(nn.Module):
 
 class eLAREGraph(nn.Module):
     def __init__(self, channels, hidden_dim=None, activation='relu', normalization='batch', num_layers=3):
-        super(LAREGraph, self).__init__()
+        super(eLAREGraph, self).__init__()
         self.channels = channels
         self.hidden_dim = hidden_dim if hidden_dim is not None else channels
         self.num_layers = num_layers  
