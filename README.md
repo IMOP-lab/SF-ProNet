@@ -18,7 +18,7 @@ The schematic representation illustrates the proposed iSpaGate, wherein spatial-
 
 ## Detailed Key component structure of the FluFormer
 <p align="center">
-  <img src="images/Fig3_FluFormer" alt="Figure 3" style="width:60%;"/>
+  <img src="images/Fig3_FluFormer.png" alt="Figure 3" style="width:60%;"/>
 </p>
 
 The schematic depiction of the proposed FluFormer architecture, wherein the input features undergo spatial encoding independently along the x, y, and z spatial dimensions, incorporated into the feature embedding space; encoded representations are concurrently propagated through parallel multi-head self-attention and convolutions for global and localized feature extraction, respectively, followed by a fusion mechanism facilitating cross-branch integration. Moreover, the feedforward pathway integrates KAN layers to augment nonlinear representational capacity, enhancing the expressiveness of higher-order interactions inherent in complex pathological structures.
@@ -26,7 +26,7 @@ The schematic depiction of the proposed FluFormer architecture, wherein the inpu
 
 ## Detailed Key component structure of the eLARE Graph.
 <p align="center">
-  <img src="images/Fig4_LARE Graph" alt="Figure 4" style="width:60%;"/>
+  <img src="images/Fig4_eLARE Graph.png" alt="Figure 4" style="width:60%;"/>
 </p>
 
 The proposed eLARE graph, by computing spatially aggregated mean vectors across each channel and dynamically constructing an inter-channel similarity graph to effectively capture cross-channel correlations, integrates graph convolution and dynamic channel modeling strategies, thereby facilitating enhanced feature representation and detailed spatial recovery in OCT segmentation tasks.
@@ -34,7 +34,21 @@ The proposed eLARE graph, by computing spatially aggregated mean vectors across 
 
 
 
-
 ## Installation
 
 Initial learning rates are uniformly set at 0.0001, with batch sizes standardized to 1 across all models.The experiments are conducted on a computational platform equipped with dual NVIDIA GeForce RTX 4080 Super GPUs. The software environment comprises Python 3.11, PyTorch 2.4.0, and CUDA 12.1.  All training and evaluations are executed under consistent hardware and software configurations to ensure reproducibility and fairness.
+
+
+
+
+## Experiment
+
+<p align="center">
+  <img src="images/Comparisons With Other Methods.png" alt="Figure 5" style="width:80%;"/>
+</p>
+
+
+
+
+
+
