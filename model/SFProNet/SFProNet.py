@@ -156,7 +156,7 @@ class filter_trans(nn.Module):
         return low_freq_tensor
 
 
-class SpaGate(nn.Module):
+class iSpaGate(nn.Module):
     def __init__(self, rate, feat):
         super(SpaGate, self).__init__()
         self.rate = nn.Parameter(torch.tensor(rate), requires_grad=True)
@@ -319,7 +319,7 @@ class FluFormer(nn.Module):
         return x
 
 
-class LAREGraph(nn.Module):
+class eLAREGraph(nn.Module):
     def __init__(self, channels, hidden_dim=None, activation='relu', normalization='batch', num_layers=3):
         super(LAREGraph, self).__init__()
         self.channels = channels
@@ -432,19 +432,19 @@ class SFProNet(nn.Module):
         self.upcat_2 = UpCat(spatial_dims, fea[2], fea[1], fea[1], act, norm, bias, dropout, upsample)
         self.upcat_1 = UpCat(spatial_dims, fea[1], fea[0], fea[5], act, norm, bias, dropout, upsample, halves=False)
 
-        self.LAREGraph_4 = LAREGraph(channels=fea[3])
-        self.LAREGraph_3 = LAREGraph(channels=fea[2])
-        self.LAREGraph_2 = LAREGraph(channels=fea[1])
-        self.LAREGraph_1 = LAREGraph(channels=fea[5])
+        self.eLAREGraph_4 = eLAREGraph(channels=fea[3])
+        self.eLAREGraph_3 = eLAREGraph(channels=fea[2])
+        self.eLAREGraph_2 = eLAREGraph(channels=fea[1])
+        self.eLAREGraph_1 = eLAREGraph(channels=fea[5])
 
 
         self.final_conv = Conv["conv", spatial_dims](fea[5], out_channels, kernel_size=1)
 
-        self.SpaGate1 = SpaGate(0.5, 32)
-        self.SpaGate2 = SpaGate(0.5, 64)
-        self.SpaGate3 = SpaGate(0.5, 128)
-        self.SpaGate4 = SpaGate(0.5, 256)
-        self.SpaGate5 = SpaGate(0.5, 512)
+        self.iSpaGate1 = iSpaGate(0.5, 32)
+        self.iSpaGate2 = iSpaGate(0.5, 64)
+        self.iSpaGate3 = iSpaGate(0.5, 128)
+        self.iSpaGate4 = iSpaGate(0.5, 256)
+        self.iSpaGate5 = iSpaGate(0.5, 512)
         
         self.filter_trans = filter_trans('low')
 
@@ -454,27 +454,27 @@ class SFProNet(nn.Module):
         filter_low = self.filter_trans(x)
 
         x0 = self.conv_0(x)
-        x0 = self.SpaGate1(x0, filter_low) * x0
+        x0 = self.iSpaGate1(x0, filter_low) * x0
         x1 = self.down_1(x0)
-        x1 = self.SpaGate2(x1, filter_low) * x1
+        x1 = self.iSpaGate2(x1, filter_low) * x1
         x2 = self.down_2(x1)
-        x2 = self.SpaGate3(x2, filter_low) * x2
+        x2 = self.iSpaGate3(x2, filter_low) * x2
         x3 = self.down_3(x2)
-        x3 = self.SpaGate4(x3, filter_low) * x3
+        x3 = self.iSpaGate4(x3, filter_low) * x3
         x4 = self.down_4(x3)
-        x4 = self.SpaGate5(x4, filter_low) * x4
+        x4 = self.iSpaGate5(x4, filter_low) * x4
         
         x4 = self.FluFormer_1(x4)
         x4 = self.FluFormer_2(x4)
 
         u4 = self.upcat_4(x4, x3)
-        u4 = self.LAREGraph_4(u4)
+        u4 = self.eLAREGraph_4(u4)
         u3 = self.upcat_3(u4, x2)
-        u3 = self.LAREGraph_3(u3)
+        u3 = self.eLAREGraph_3(u3)
         u2 = self.upcat_2(u3, x1)
-        u2 = self.LAREGraph_2(u2)
+        u2 = self.eLAREGraph_2(u2)
         u1 = self.upcat_1(u2, x0)
-        u1 = self.LAREGraph_1(u1)
+        u1 = self.eLAREGraph_1(u1)
 
         logits = self.final_conv(u1)
         
