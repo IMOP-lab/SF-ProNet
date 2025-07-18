@@ -9,10 +9,10 @@
 Structural depiction of the SF-ProNet, comprising an encoding branch bifurcated into a spatial-domain encoder and a wavelet transform-based low-frequency feature extraction pathway, interconnected via iSpaGate facilitating selective spectral-spatial fusion; a bottleneck stage characterized by dual consecutive FluFormer module designed for simultaneous global-local feature modeling; and a decoding branch structured by four successive upsampling processes, each followed by a eLARE graph dynamically refining inter-channel dependencies to enhance granularity of reconstructed segmentation features.
 
 
-## Detailed network structure of the iSpaGate
+## Detailed Key component structure of the iSpaGate
 
 <p align="center">
-  <img src="images/Fig2_iSpaGate.png" alt="Figure 2" style="width:80%;"/>
+  <img src="images/Fig2_iSpaGate.png" alt="Figure 2" style="width:60%;"/>
 </p>
 
 The schematic representation illustrates the proposed iSpaGate, wherein spatial-domain input features and low-frequency components de-rived via discrete wavelet transformation are concurrently utilized; the low-frequency spectrum is subjected to convolutional processing and nonlinear activation to produce a spatial attention map, subsequently modulating the spatial-domain representation through element-wise multiplication, and further adaptively integrated through trainable parameters, resulting in refined output features via multiplication with the original spatial-domain input.
